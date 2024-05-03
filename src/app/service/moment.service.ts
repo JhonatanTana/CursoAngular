@@ -27,4 +27,9 @@ export class MomentService {
   createMoment(formData:FormData): Observable<FormData> { // Cria os momentos no backend
     return  this.http.post<FormData>(this.apiUrl, formData)
   }
+
+  removeMoment(id:number) { // Deleta o momento
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.delete(url)
+  }
 }
